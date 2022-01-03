@@ -1,0 +1,26 @@
+[{
+  "Id":1,
+  "Name":"Banglow 1",
+  "Type":"House",
+  "Price":1000000
+},{
+  "Id":2,
+  "Name":"Banglow 2",
+  "Type":"House",
+  "Price":1200000
+},{
+  "Id":3,
+  "Name":"Banglow 3",
+  "Type":"House",
+  "Price":900000
+},{
+  "Id":4,
+  "Name":"Banglow 4",
+  "Type":"House",
+  "Price":1100000
+},{
+  "Id":5,
+  "Name":"Banglow 5",
+  "Type":"House",
+  "Price":1150000
+}]

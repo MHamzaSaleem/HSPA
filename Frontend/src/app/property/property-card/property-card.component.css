@@ -1,0 +1,44 @@
+h1 {
+  font-weight: normal;
+}
+
+.card-img-Wrapper{
+  /*This property is used to hide overflow of control*/
+  overflow: hidden;
+  position: relative;
+}
+
+.card:hover div img{
+transform: scale(1.1,1.1);
+transition-duration: 500ms;
+transition-timing-function: ease-in;
+opacity: 0.5;
+height: 250px;
+}
+
+.card div img{
+transform: scale(1,1);
+transition-duration: 500ms;
+transition-timing-function: ease-out;
+opacity: 1;
+height: 250px;
+}
+
+.member-icons{
+position: absolute;
+left: 0;
+right: 0;
+bottom: -10%;
+opacity: 0;
+margin-left: auto;
+margin-right: auto;
+}
+
+.card-img-Wrapper:hover .member-icons{
+opacity: 1;
+bottom: 0;
+}
+
+.animate{
+  transition: all 0.3s ease-in-out;
+}
