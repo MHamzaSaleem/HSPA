@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { IProperty } from "../property-list/IProperty";
 
 @Component({
   selector: 'app-property-card',
@@ -11,7 +12,9 @@ import { Component, Input } from "@angular/core";
 
 )
 export class PropertyCardComponent{
-  @Input() property : any
+  //to get rid of this error 'Property 'property' has no initializer and is not definitely assigned in the constructor.ts(2564)'
+  //add this "strictPropertyInitialization": false to tsconfig.json file
+  @Input() property : IProperty;
   //using hardcoded for example later we will get it from API
   //Easiet type is String interpolation
   /*Property : any = {

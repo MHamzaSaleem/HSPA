@@ -5,22 +5,51 @@
   "Price":1000000
 },{
   "Id":2,
+  "SellRent":1,
   "Name":"Banglow 2",
   "Type":"House",
-  "Price":1200000
-},{
+  "Price":1200000,
+  "Image":"2.jpg"
+  },{
   "Id":3,
+  "SellRent":1,
   "Name":"Banglow 3",
   "Type":"House",
-  "Price":900000
+  "Price":900000,
+  "Image":"3.jpg"
 },{
   "Id":4,
+  "SellRent":1,
   "Name":"Banglow 4",
   "Type":"House",
-  "Price":1100000
+  "Price":1100000,
+  "Image":"4.jfif"
 },{
   "Id":5,
+  "SellRent":1,
   "Name":"Banglow 5",
   "Type":"House",
-  "Price":1150000
+  "Price":1150000,
+  "Image":"5.jpg"
+},{
+  "Id":6,
+  "SellRent":1,
+  "Name":"Banglow 6",
+  "Type":"House",
+  "Price":4059000,
+  "Image":"6.PNG"
+},{
+  "Id":7,
+  "SellRent":1,
+  "Name":"Banglow 7",
+  "Type":"House",
+  "Price":3230000,
+  "Image":"7.jpg"
+},{
+  "Id":8,
+  "SellRent":1,
+  "Name":"Banglow 8",
+  "Type":"House",
+  "Price":1150000,
+  "Image":"2.jpg"
 }]
