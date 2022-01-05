@@ -1,5 +1,6 @@
 [{
   "Id":1,
+  "SellRent":1,
   "Name":"Banglow 1",
   "Type":"House",
   "Price":1000000
@@ -33,7 +34,7 @@
   "Image":"5.jpg"
 },{
   "Id":6,
-  "SellRent":1,
+  "SellRent":2,
   "Name":"Banglow 6",
   "Type":"House",
   "Price":4059000,
@@ -47,7 +48,7 @@
   "Image":"7.jpg"
 },{
   "Id":8,
-  "SellRent":1,
+  "SellRent":2,
   "Name":"Banglow 8",
   "Type":"House",
   "Price":1150000,

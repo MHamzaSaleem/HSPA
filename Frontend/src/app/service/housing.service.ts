@@ -12,12 +12,12 @@ export class HousingService {
   constructor(private http:HttpClient) { }
   //can define returning type of method using observable
   //i defined Observable<IProperty[]> because i'm returning IProperty array
-  getAllProperties(): Observable<IProperty[]>{
+  getAllProperties(SellRent: number): Observable<IProperty[]>{
     return this.http.get('data/properties.json').pipe(
       map((data:any) => {
         const propertiesArray: Array<IProperty> = [];
         for (const id in data) {
-          if(data.hasOwnProperty(id)){
+          if(data.hasOwnProperty(id) && data[id].SellRent === SellRent){
             propertiesArray.push(data[id]) ;
           }
         }

@@ -1,0 +1,9 @@
+.ng-invalid.ng-touched{
+  border-color: red;
+}
+.error-block{
+  color:red;
+}
+.mr-2{
+  margin-right: 10px !important;
+}
