@@ -33,20 +33,31 @@
         <div class="form-group col-12">
           <label for="passwrod" class="form-label">Password</label>
           <input type="password" class="form-control" formControlName="password">
-          <!--<span *ngIf="!password.valid && password.touched" class="error-block">
-            <span *ngIf="password.errors['required']">
+          <span *ngIf="!password.valid && password.touched" class="error-block">
+            <span *ngIf="password.hasError('required')">
               Please provide password
             </span>
-            <span *ngIf="email?.errors.minlength">
+            <span *ngIf="password.hasError('minlength')">
               Password should not be lesser than 8 characters
             </span>
-          </span>-->
+          </span>
         </div>
         <br/>
 
         <div class="form-group col-12">
           <label for="cpassword" class="form-label">Confirm Password</label>
           <input type="password" class="form-control" formControlName="confirmPassword">
+          <span *ngIf="!confirmpassword.valid && confirmpassword.touched" class="error-block">
+            <span *ngIf="confirmpassword.hasError('required')">
+              Please provide confirm password
+            </span>
+            <span *ngIf="confirmpassword.hasError('minlength')">
+              Confirm password should not be lesser than 8 characters
+            </span>
+          </span>
+          <span *ngIf="confirmpassword.valid && registrationForm.hasError('notmatched')"  class="error-block">
+            Password not matched
+          </span>
         </div>
         <br/>
 
