@@ -2,22 +2,20 @@
   <div class="col-6 m-auto">
     <div class="card m-auto">
       <div class="card-header">
-        Login
+        Add form heading here
       </div>
       <div class="card-body">
-        <form #loginForm='ngForm' (ngSubmit)="onLogin(loginForm)">
+        <form>
           <div class="form-group col-12">
-            <label>Name</label>
-            <input class="form-control" required ngModel name="username">
+            <label>Label</label>
+            <input class="form-control" required>
           </div>
-          <br/>
           <div class="form-group col-12">
-            <label>Password</label>
-            <input class="form-control" type="password" required ngModel name="password">
+            <label>Label</label>
+            <input class="form-control" required>
           </div>
-          <br/>
           <div class="form-group col-12">
-            <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary">Login</button>
             <button type="button" class="btn btn-secondary">Cancel</button>
           </div>
         </form>

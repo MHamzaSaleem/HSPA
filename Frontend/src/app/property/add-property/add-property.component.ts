@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
+import { TabsetComponent } from "ngx-bootstrap/tabs";
 
 
 @Component({
@@ -11,6 +12,8 @@ import { Router } from "@angular/router";
 
 )
 export class AddPropertyComponent implements OnInit {
+@ViewChild('formTabs') formTabs?: TabsetComponent;
+
 constructor (private router: Router){}
 ngOnInit(): void {
 
@@ -20,5 +23,10 @@ onBack(){
 }
 onSubmit(Form: NgForm){
  console.log(Form);
+}
+selectTab(tabId: number) {
+  if (this.formTabs?.tabs[tabId]) {
+    this.formTabs.tabs[tabId].active = true;
+  }
 }
 }

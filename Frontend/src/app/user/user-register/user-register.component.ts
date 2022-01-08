@@ -2,6 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, RequiredValidator, Validators, FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AbstractControl } from '@angular/forms';
+import { UserService } from "src/app/service/user.service";
+import { ThrowStmt } from "@angular/compiler";
+import { User } from "src/app/model/user";
+import { AlertifyService } from "src/app/service/alertify.service";
 
 @Component({
   selector: 'user-register',
@@ -11,9 +15,10 @@ import { AbstractControl } from '@angular/forms';
 
 )
 export class UserRegisterComponent implements OnInit {
-  user: any = {};
+  user: User;
+  submitted: boolean;
   registrationForm: FormGroup;
-  constructor ( private fb: FormBuilder, private router: Router){}
+  constructor ( private fb: FormBuilder, private router: Router, private userService: UserService, private alertify: AlertifyService){}
   ngOnInit() {
     //Normal way to work with forms
     //this.registrationForm = new FormGroup({
@@ -41,7 +46,10 @@ export class UserRegisterComponent implements OnInit {
     return fg.get('password')?.value === fg.get('confirmPassword')?.value ? null : {notmatched: true}
   }
 
+  //--------------------------------------------------------------------------
+  //Getter methods for all form controls
   //getter method in angular it must return a value and cannot have parameters
+  //--------------------------------------------------------------------------
   get username(){
     return this.registrationForm.get('userName') as FormControl;
   }
@@ -58,22 +66,31 @@ export class UserRegisterComponent implements OnInit {
     return this.registrationForm?.get('confirmPassword') as FormControl;
   }
 
-  onSubmit(){
-    console.log(this.registrationForm)
-    this.user = Object.assign(this.user, this.registrationForm.value);
-    this.addUser(this.user);
-    this.registrationForm.reset();
+  get mobile(){
+    return this.registrationForm?.get('mobile') as FormControl;
   }
 
-  addUser(user:any){
-    let users: any = [];
-    if(localStorage.getItem('Users')){
-      users = localStorage.getItem('Users');
-      users = [user, ...users];
+  onSubmit(){
+    this.submitted = true;
+    console.log(this.registrationForm)
+    if(this.registrationForm.valid){
+      //this.user = Object.assign(this.user, this.registrationForm.value);
+      this.userService.addUser(this.userData());
+      this.registrationForm.reset();
+      this.submitted = false;
+      this.alertify.success('Congrats, you are successfully registered');
     }
     else{
-      users = [user];
+      this.alertify.error('Kindly provied the required fields');
     }
-    localStorage.setItem('Users',JSON.stringify(users));
+  }
+
+  userData(): User{
+    return this.user = {
+      UserName: this.username.value,
+      Email: this.email.value,
+      Password: this.password.value,
+      mobile: this.mobile.value
+    }
   }
 }

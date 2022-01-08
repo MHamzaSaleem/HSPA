@@ -22,12 +22,18 @@
       "es2020",
       "dom"
     ],
+    "typeRoots": [
+      "node_modules/@type",
+      "src/alertyfytype.d.ts"
+    ],
     "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "noImplicitAny": false,
+    "strict":false
   }
 }

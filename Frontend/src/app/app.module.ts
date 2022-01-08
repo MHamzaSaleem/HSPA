@@ -18,6 +18,14 @@ import { from } from 'rxjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { UserService } from './service/user.service';
+import { AlertifyService } from './service/alertify.service';
+import { AuthService } from './service/auth.service';
+
+//Ngx-Bootstrap
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 const appRoutes: Routes = [
   {path:'', component:PropertyListComponent},
@@ -46,10 +54,16 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [
-    HousingService
+    HousingService,
+    UserService,
+    AlertifyService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
