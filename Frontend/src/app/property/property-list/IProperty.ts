@@ -1,10 +1,10 @@
 import { identifierName } from "@angular/compiler"
 
 export interface IProperty{
-  Id: number;
+  Id: number | null;
   Name: string;
-  Price: number;
+  Price: number | null;
   Type: string;
-  SellRent: number;
+  SellRent: number | null ;
   Image?: string;
 }
