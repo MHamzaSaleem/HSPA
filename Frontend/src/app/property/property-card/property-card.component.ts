@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { IProperty } from "../property-list/IProperty";
+import { IPropertyBase } from "src/app/model/IPropertyBase";
 
 @Component({
   selector: 'app-property-card',
@@ -14,7 +14,9 @@ import { IProperty } from "../property-list/IProperty";
 export class PropertyCardComponent{
   //to get rid of this error 'Property 'property' has no initializer and is not definitely assigned in the constructor.ts(2564)'
   //add this "strictPropertyInitialization": false to tsconfig.json file
-  @Input() property : IProperty;
+  //input var define to get data from parent components
+  @Input() property : IPropertyBase;
+  @Input() hideIcons : boolean;
   //using hardcoded for example later we will get it from API
   //Easiet type is String interpolation
   /*Property : any = {

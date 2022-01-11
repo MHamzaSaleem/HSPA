@@ -8,10 +8,10 @@
         <h3>
           List Your Property</h3>
       </div>
-      <div class="card-body">
+      <div class="card-body shadow-lg bg-white p-3"   >
         <form (ngSubmit)="onSubmit(AddPropertyForm)" #AddPropertyForm="ngForm">
-            <div>
-              <tabset #formTabs>
+            <div class="tab-panel">
+              <tabset #formTabs class="member-tabset">
                 <tab heading="Basic Info">
                   <br>
                   <div class="form-group">
@@ -36,7 +36,7 @@
                   before two way property binding-->
                   <div class="form-group col-12">
                     <p>Property Type</p>
-                    <div class="btn-group" btnRadioGroup name="pType" [(ngModel)]="propertyView.Type">
+                    <div class="btn-group" btnRadioGroup name="pType" [(ngModel)]="propertyView.PType">
                       <label *ngFor="let ptype of propertyType" class="btn btn-outline-primary mr-2" btnRadio={{ptype}} role="button"
                       tabindex="0" name="PTYPE">{{ptype}}</label>
                     </div>
@@ -255,8 +255,8 @@
       <div class="card-header">
         <h4>Your Property Preview</h4>
       </div>
-      <div class="card-header">
-        <app-property-card [property]="propertyView"></app-property-card>
+      <div class="card-body shadow-lg p-3 bg-white">
+        <app-property-card [property]="propertyView" [hideIcons]="true"></app-property-card>
       </div>
     </div>
   </diV>

@@ -34,6 +34,7 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "noImplicitAny": false,
-    "strict":false
+    "strict":false,
+    "types": ["node"]
   }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import { TabsetComponent } from "ngx-bootstrap/tabs";
-import { IProperty } from "../property-list/IProperty";
+import { IPropertyBase } from "src/app/model/IPropertyBase";
 
 
 @Component({
@@ -21,12 +21,17 @@ furnishType = ['Fully','Semi','Unfurnished']
 readyToMove = ['East', 'West', 'South', 'North']
 gatedCommunity = ['Yes','No']
 
-propertyView:IProperty = {
+propertyView:IPropertyBase = {
   Id:null,
   Name: '',
   Price: null,
   SellRent: null,
-  Type: ''
+  PType: '',
+  FType: '',
+  BHK: null,
+  City: '',
+  BuiltArea: null,
+  RTM: null
 };
 
 constructor (private router: Router){}

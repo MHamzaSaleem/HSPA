@@ -4,3 +4,11 @@
 .error-block{
   color:red;
 }
+.card-header > h1, .card-header > h2, .card-header > h3, .card-header > h4{
+  color: white;
+}
+.card-header{
+  height: 42px;
+  padding: 4px 10px !important;
+  background-color: rgb(10, 125, 233) !important;
+}
