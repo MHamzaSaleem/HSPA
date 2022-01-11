@@ -8,9 +8,27 @@
       <li class="list-inline-item btn btn-primary"><i class="far fa-address-book"></i></li>
     </ul>
   </div>
-  <div class="card-body p-3">
+  <!-- <div class="card-body p-3">
     <h1>{{property.Name}}</h1>
     <h2>{{property.PType}}</h2>
     <h3>{{property.Price}}</h3>
+  </div> -->
+  <div class="card-body p-1">
+    <h1 class="mb-0"> {{property.BHK}} BHK {{property.PType}} </h1>
+
+    in {{property.Name}}
+    <span *ngIf="property.Name">,</span>
+    {{property.City}}
+
+    <h6  class="mt-2">{{property.FType}}
+    <span *ngIf="property.FType !== 'Unfurnished'">Furnished </span> | Ready To Move
+    <!-- <span *ngIf="property.RTM"> | Ready to Move</span>
+    <span *ngIf="!property.RTM"> | Posession: {{property.estPossessionOn | date}}</span> -->
+    </h6>
+
+    <hr class="mt-0 mb-2">
+
+    <h6 class="mb-0">Price: <span class="font-highlight">{{property.Price}} USD.</span> |
+      Area:  <span class="font-highlight">{{property.BuiltArea}} Sq Ft </span> </h6>
   </div>
 </diV>

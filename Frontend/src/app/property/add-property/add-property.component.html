@@ -11,12 +11,12 @@
       <div class="card-body shadow-lg bg-white p-3"   >
         <form (ngSubmit)="onSubmit(AddPropertyForm)" #AddPropertyForm="ngForm">
             <div class="tab-panel">
-              <tabset #formTabs class="member-tabset">
-                <tab heading="Basic Info">
+              <tabset #formTabs class="member-tabset" >
+                <tab heading="Basic Info" ngModelGroup="BasicInfo" #BasicInfo="ngModelGroup">
                   <br>
                   <div class="form-group">
                     <p>I want to</p>
-                    <div class="btn-group" btnRadioGroup>
+                    <div class="btn-group" btnRadioGroup ngModel name="SellRent" required>
                       <label class="btn btn-outline-primary mr-2" btnRadio=1 role="button"
                       name="SellRent">Sell</label>
                       <label class="btn btn-outline-primary mr-2" btnRadio=2 role="button"
@@ -26,9 +26,9 @@
                   <br>
                   <div class="form-group">
                     <p>BHK</p>
-                    <div class="btn-group" btnRadioGroup>
+                    <div class="btn-group" btnRadioGroup [(ngModel)]="propertyView.BHK" name="BHK">
                       <label *ngFor="let bhk of [1,2,3,4]" class="btn btn-outline-primary mr-2" btnRadio={{bhk}} role="button"
-                      tabindex="0" name="BHK">{{bhk}}</label>
+                      tabindex="0">{{bhk}}</label>
                     </div>
                   </div>
                   <br>
@@ -44,7 +44,7 @@
                   <br>
                   <div class="form-group">
                     <p>Furnished Type</p>
-                    <div class="btn-group" btnRadioGroup>
+                    <div class="btn-group" btnRadioGroup [(ngModel)]="propertyView.FType" name="FType">
                       <label *ngFor="let ftype of furnishType" class="btn btn-outline-primary mr-2" btnRadio={{ftype}} role="button"
                       tabindex="0" name="FTYPE">{{ftype}}</label>
                     </div>
@@ -65,12 +65,12 @@
                     <br/>
                     <div class="form-group col-12">
                       <label for="price">City</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" [(ngModel)]="propertyView.City" name="City">
                     </div>
                     <br/>
                     <div class="form-group col-12">
                       <!-- <button [disabled]="!AddPropertyForm.valid"  type="submit" class="btn btn-primary mr-2">Save</button> -->
-                      <button type="button" (click)="selectTab(1)" class="btn btn-primary btn-block">Next</button>
+                      <button type="button" (click)="selectTab(1)" class="btn btn-primary btn-block"  [disabled]="!BasicInfo.valid">Next</button>
                   </div>
                 </tab>
 
@@ -99,7 +99,7 @@
 
                   <div class="form-group col-12">
                     <label>Built Area (in Sqr Feet)</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" [(ngModel)]="propertyView.BuiltArea" name="BuiltArea">
                   </div>
                   <br/>
 

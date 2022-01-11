@@ -1,5 +1,8 @@
+
 <diV class="row">
-  <div *ngFor="let Property of properties" class="shadow-sm col-sm-4 p-3">
-    <app-property-card [property] = "Property"></app-property-card>
+  <div class="col-sm-4" *ngFor="let Property of properties">
+    <div class="shadow-lg p-3 mb-4" >
+      <app-property-card [property] = "Property"></app-property-card>
+    </div>
   </div>
 </diV>

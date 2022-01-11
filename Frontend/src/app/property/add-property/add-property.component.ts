@@ -43,6 +43,7 @@ onBack(){
 }
 onSubmit(Form: NgForm){
  console.log(Form);
+ console.log(Form.value.BasicInfo.SellRent)
 }
 selectTab(tabId: number) {
   if (this.formTabs?.tabs[tabId]) {
