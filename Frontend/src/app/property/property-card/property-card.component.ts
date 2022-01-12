@@ -16,7 +16,7 @@ export class PropertyCardComponent{
   //add this "strictPropertyInitialization": false to tsconfig.json file
   //input var define to get data from parent components
   @Input() property : IPropertyBase;
-  @Input() hideIcons : boolean;
+  @Input() hideIcons : any;
   //using hardcoded for example later we will get it from API
   //Easiet type is String interpolation
   /*Property : any = {
