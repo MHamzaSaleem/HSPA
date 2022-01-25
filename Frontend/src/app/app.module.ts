@@ -28,6 +28,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { DatePipe } from '@angular/common';
 
 const appRoutes: Routes = [
   {path:'', component:PropertyListComponent},
@@ -67,7 +68,8 @@ const appRoutes: Routes = [
     HousingService,
     UserService,
     AlertifyService,
-    AuthService
+    AuthService,
+    //DatePipe
   ],
   bootstrap: [AppComponent]
 })

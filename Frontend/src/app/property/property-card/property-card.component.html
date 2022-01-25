@@ -1,10 +1,10 @@
 
 <diV class="card">
   <div class="card-img-Wrapper">
-    <img *ngIf="property.Image" class="card-img-top" src="assets/Image/{{property.Image}}">
-    <img *ngIf="!property.Image" class="card-img-top" src="assets/Image/house-default.jpg">
+    <img *ngIf="property.photo" class="card-img-top" src="assets/Image/{{property.photo}}">
+    <img *ngIf="!property.photo" class="card-img-top" src="assets/Image/house-default.jpg">
     <ul *ngIf="!hideIcons" class="list-inline text-center member-icons animate">
-      <li class="list-inline-item btn btn-primary" routerLink="/property-detail/{{property.Id}}"><i class="far fa-edit"></i></li>
+      <li class="list-inline-item btn btn-primary" routerLink="/property-detail/{{property.id}}"><i class="far fa-edit"></i></li>
       <li class="list-inline-item btn btn-primary"><i class="far fa-address-book"></i></li>
     </ul>
   </div>
@@ -14,21 +14,21 @@
     <h3>{{property.Price}}</h3>
   </div> -->
   <div class="card-body p-1">
-    <h1 class="mb-0"> {{property.BHK}} BHK {{property.PType}} </h1>
+    <h1 class="mb-0"> {{property.bhk}} BHK {{property.propertyType}} </h1>
 
-    in {{property.Name}}
-    <span *ngIf="property.Name">,</span>
-    {{property.City}}
+    in {{property.name}}
+    <span *ngIf="property.name">,</span>
+    {{property.city}}
 
-    <h6  class="mt-2">{{property.FType}}
-    <span *ngIf="property.FType !== 'Unfurnished'">Furnished </span> | Ready To Move
+    <h6  class="mt-2">{{property.furnishingType}}
+    <span *ngIf="property.furnishingType !== 'Unfurnished'">Furnished </span> | Ready To Move
     <!-- <span *ngIf="property.RTM"> | Ready to Move</span>
     <span *ngIf="!property.RTM"> | Posession: {{property.estPossessionOn | date}}</span> -->
     </h6>
 
     <hr class="mt-0 mb-2">
 
-    <h6 class="mb-0">Price: <span class="font-highlight">{{property.Price}} USD.</span> |
-      Area:  <span class="font-highlight">{{property.BuiltArea}} Sq Ft </span> </h6>
+    <h6 class="mb-0">Price: <span class="font-highlight">{{property.price}} USD.</span> |
+      Area:  <span class="font-highlight">{{property.builtArea}} Sq Ft </span> </h6>
   </div>
 </diV>

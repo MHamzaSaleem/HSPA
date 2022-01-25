@@ -1,15 +1,16 @@
 import { identifierName } from "@angular/compiler"
 
 export interface IPropertyBase {
-  Id: number | null;
-  Name: string;
-  Price: number | null;
-  SellRent: number | null;
-  Image?: string;
-  FType: string;
-  PType: string;
-  BHK: number | null;
-  City: string;
-  BuiltArea: number | null;
-  RTM: number | null;
+  id: number | null;
+  sellRent: number | null;
+  name: string;
+  propertyType: string | null;
+  furnishingType: string | null;
+  price: number | null;
+  bhk: number | null;
+  builtArea: number | null;
+  city: string;
+  readyToMove: boolean | null;
+  photo?: string;
+  estPossessionOn?: string;
 }
