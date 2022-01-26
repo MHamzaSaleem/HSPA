@@ -36,7 +36,11 @@
             "regexp": "bundle generation complete"
           }
         }
-      }
+      },
+      //used for debugging application
+      //"options": {
+      //  "cwd": "$(workspaceFolder}/"
+      //}
     }
   ]
 }

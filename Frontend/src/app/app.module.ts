@@ -29,12 +29,13 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DatePipe } from '@angular/common';
+import { PropertyDetailResolverService } from './property/property-detail/property-detail-resolver.service';
 
 const appRoutes: Routes = [
   {path:'', component:PropertyListComponent},
   {path:'rent-property', component:PropertyListComponent},
   {path:'add-property', component:AddPropertyComponent},
-  {path:'property-detail/:id', component:PropertyDetailComponent},
+  {path:'property-detail/:id', component:PropertyDetailComponent, resolve: {prp: PropertyDetailResolverService}},
   {path:'user/login', component:UserLoginComponent},
   {path:'user/register', component:UserRegisterComponent},
   {path:'**', component:PropertyListComponent}
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
     UserService,
     AlertifyService,
     AuthService,
+    PropertyDetailResolverService
     //DatePipe
   ],
   bootstrap: [AppComponent]

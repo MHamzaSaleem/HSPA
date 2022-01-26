@@ -4,10 +4,17 @@
   "configurations": [
     {
       "name": "ng serve",
+      ////used for debugging application
+      //"name": "Launch ng serve & Chrome",
+      //"type": "chrome",
+      ////used for debugging application
       "type": "pwa-chrome",
       "request": "launch",
       "preLaunchTask": "npm: start",
       "url": "http://localhost:4200/"
+      ////used for debugging application
+      //"webRoot": "${workspaceFolder}/"
+      ////used for debugging application
     },
     {
       "name": "ng test",
