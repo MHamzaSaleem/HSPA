@@ -10,9 +10,13 @@ using System.Collections.Generic;
 
 namespace HSPI_API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class CityController : ControllerBase
+    //ApiController attribute is introduce in .net core version 2.1
+    //and it is responsible for validating api coming request data validation
+    //if we comment out this ApiController than we have to apply validation manually by using ModelState
+    //example given in post api method AddCity
+    //[Route("api/[controller]")]
+    //[ApiController]
+    public class CityController : BaseController
     {
         private readonly IUnitOfWork repo;
         private readonly IMapper mapper;
@@ -27,6 +31,7 @@ namespace HSPI_API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
+            throw new System.UnauthorizedAccessException();
             //var cities = await dc.Cities.ToListAsync();
             var cities = await repo.CityRepository.GetCitiesAsync();
             var citiesDTO = mapper.Map<IEnumerable<CityDTO>>(cities);
@@ -66,6 +71,11 @@ namespace HSPI_API.Controllers
         [HttpPost("post")]
         public async Task<IActionResult> AddCity(CityDTO citydto)
         {
+            #region Old Way To Validate Request
+            //if (!ModelState.IsValid)
+            //    return BadRequest(ModelState);
+            #endregion
+
             #region Manaully DTO Mapping
             //var city = new City()
             //{
@@ -75,6 +85,7 @@ namespace HSPI_API.Controllers
             //    LastUpdatedOn = System.DateTime.Now
             //};
             #endregion
+
             var city = mapper.Map<City>(citydto);
             repo.CityRepository.AddCity(city);
             await repo.SaveAsync();
@@ -89,5 +100,29 @@ namespace HSPI_API.Controllers
             await repo.SaveAsync();
             return Ok(id);
         }
+        [HttpPut("update/{id}")]
+        public async Task<IActionResult> UpdateCity(CityDTO citydto, int id)
+        {
+            if (id != citydto.Id)
+                return BadRequest("Update not allowed!");
+            var cityFromDB = await repo.CityRepository.FindCity(id);
+            if (cityFromDB == null)
+                return BadRequest("Update not allowed!");
+            cityFromDB.LastUpdatedBy = 1;
+            cityFromDB.LastUpdatedOn = System.DateTime.Now;
+            mapper.Map(citydto, cityFromDB);
+            await repo.SaveAsync();
+            return StatusCode(200);
+        }
+        //[HttpPatch("update/{id}")]
+        //public async Task<IActionResult> UpdateCityPatch(JsonPatchExtensions<City> citydto, int id)
+        //{
+        //    var cityFromDB = await repo.CityRepository.FindCity(id);
+        //    cityFromDB.LastUpdatedBy = 1;
+        //    cityFromDB.LastUpdatedOn = System.DateTime.Now;
+        //    mapper.Map(citydto, cityFromDB);
+        //    await repo.SaveAsync();
+        //    return StatusCode(200);
+        //}
     }
 }

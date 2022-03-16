@@ -13,5 +13,6 @@ namespace HSPI_API.Data
         //configuration that provides in STARTUP.CS File   
         public DataContext(DbContextOptions<DataContext> options) : base(options){ }
         public DbSet<City> Cities { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 } 
